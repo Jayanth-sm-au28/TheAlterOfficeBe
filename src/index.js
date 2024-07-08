@@ -24,6 +24,7 @@ const mongooseOptions = {
     useUnifiedTopology: true,
     dbName: 'Alter',
 };
+console.log("process.env.MONGO_URI", config_1.config.MONGO_URI);
 mongoose_1.default.connect(config_1.config.MONGO_URI, mongooseOptions)
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error('MongoDB connection error:', err));

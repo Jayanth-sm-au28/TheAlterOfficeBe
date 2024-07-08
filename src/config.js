@@ -7,6 +7,6 @@ exports.config = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 exports.config = {
-    MONGO_URI: process.env.MONGO_URI || '',
-    PORT: process.env.PORT || 5000
+    MONGO_URI: " mongodb+srv://jcar6768:8wSa2NGbZJAxYwth@test-db-cluster.rotwqil.mongodb.net/?retryWrites=true&w=majority&appName=test-db-cluster",
+    PORT: 5000
 };
