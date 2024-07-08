@@ -1,7 +1,5 @@
 
-import multer, { StorageEngine,FileFilterCallback  } from 'multer';
-import { Request  } from 'express';
-import { MulterError } from 'multer';
+import multer, { StorageEngine } from 'multer';
 
 const storage: StorageEngine = multer.diskStorage({
   destination: (_req, file, cb) => {
@@ -12,11 +10,11 @@ const storage: StorageEngine = multer.diskStorage({
   }
 });
 
-const fileFilter = (_req: Request, file: Express.Multer.File, cb: FileFilterCallback) => {
+const fileFilter = (_req:any, file:any, cb:any) => {
   if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-    cb(null, true);  // Accept the file
+    cb(null, true);
   } else {
-    cb(null as any, false) // Reject the file
+    cb(new Error('Unsupported file format'), false);
   }
 };
 
