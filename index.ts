@@ -1,8 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import userRoutes from './routes/userRoutes';
-import { config } from './config';
+import userRoutes from './src/routes/userRoutes';
+import { config } from './src/config';
 
 const app = express();
 const corsOptions = {
