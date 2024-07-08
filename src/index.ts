@@ -5,26 +5,28 @@ import userRoutes from './routes/userRoutes';
 import { config } from './config';
 
 const app = express();
+
 const corsOptions = {
-  origin: 'http://localhost:5173/', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  origin: 'http://localhost:5173', // Adjust as per your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true, 
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
-
-mongoose.connect(config.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  dbName: 'Alter' 
-})
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.error('MongoDB connection error:', err));
-
-app.use(cors());
 app.use(express.json());
-app.use('/api/users',userRoutes);
+app.use('/api/users', userRoutes);
 
 const PORT = config.PORT || 5000;
+
+const mongooseOptions: mongoose.ConnectOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  dbName: 'Alter',
+};
+
+mongoose.connect(config.MONGO_URI, mongooseOptions)
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.error('MongoDB connection error:', err));
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,5 +1,8 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 export const config = {
-    MONGO_URI: 'mongodb+srv://jcar6768:8wSa2NGbZJAxYwth@test-db-cluster.rotwqil.mongodb.net/?retryWrites=true&w=majority&appName=test-db-cluster',
+    MONGO_URI: process.env.MONGO_URI || '',
     PORT: process.env.PORT || 5000
-  };
-  
+};
