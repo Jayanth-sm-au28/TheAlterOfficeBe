@@ -20,8 +20,8 @@ app.use(express_1.default.json());
 app.use('/api/users', userRoutes_1.default);
 const PORT = config_1.config.PORT || 5000;
 const mongooseOptions = {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
     dbName: 'Alter',
 };
 console.log("process.env.MONGO_URI", config_1.config.MONGO_URI);

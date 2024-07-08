@@ -20,11 +20,11 @@ app.use('/api/users', userRoutes);
 const PORT = config.PORT || 5000;
 
 const mongooseOptions: mongoose.ConnectOptions = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+  // useNewUrlParser: true,
+  // useUnifiedTopology: true,
   dbName: 'Alter',
 };
-console.log("process.env.MONGO_URI",config.MONGO_URI)
+// console.log("process.env.MONGO_URI",config.MONGO_URI)
 mongoose.connect(config.MONGO_URI, mongooseOptions)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err));
